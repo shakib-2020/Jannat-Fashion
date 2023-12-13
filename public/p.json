@@ -1,0 +1,47 @@
+[
+  {
+    "id": 0,
+    "title": "Product-1",
+    "desc": "A lightweight Nike ZoomX midsole is combined with increased stack heights to help provide cushioning during extended stretches of running.",
+    "imageURI": "/product.PNG",
+    "price": "10.99",
+    "images": [
+      "p1.png",
+      "p2.png",
+      "p3.png",
+      "p4.png",
+      "p5.png",
+      "p6.png",
+      "p7.png"
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Product-1",
+    "desc": "A lightweight Nike ZoomX midsole is combined with increased stack heights to help provide cushioning during extended stretches of running.",
+    "imageURI": "/product.PNG",
+    "price": "10.99"
+  },
+  {
+    "id": 2,
+    "title": "Product-1",
+    "desc": "A lightweight Nike ZoomX midsole is combined with increased stack heights to help provide cushioning during extended stretches of running.",
+    "imageURI": "/product.PNG",
+    "price": "10.99"
+  },
+  {
+    "id": 3,
+    "title": "Product-1",
+    "desc": "A lightweight Nike ZoomX midsole is combined with increased stack heights to help provide cushioning during extended stretches of running.",
+    "imageURI": "/product.PNG",
+    "price": "10.99"
+  },
+  {
+    "id": 4,
+    "title": "Product-1",
+    "desc": "A lightweight Nike ZoomX midsole is combined with increased stack heights to help provide cushioning during extended stretches of running.",
+    "imageURI": "/product.PNG",
+    "original_price": "20.99",
+    "price": "10.99"
+  }
+]
