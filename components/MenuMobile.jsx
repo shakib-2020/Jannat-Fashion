@@ -9,15 +9,7 @@ const data = [
   { id: 4, name: "Contact", url: "/contact" },
 ];
 
-const subMenuData = [
-  "all",
-  "smartphones",
-  "laptops",
-  "fragrances",
-  "skincare",
-  "groceries",
-  "home-decoration",
-];
+const subMenuData = ["all", "three Piece", "saree", "jewellery", "cosmetics"];
 
 const MenuMobile = ({
   showCatMenu,
