@@ -27,13 +27,13 @@ export default function Home({ products }) {
         {/* heading and paragaph start */}
         <div className="text-center max-w-[800px] mx-auto my-[50px] md:my-[80px]">
           <h2 className="text-[28px] md:text-[39px] mb-5 font-semibold leading-tight text-[#a14da0ff]">
-            Cushioning for Your Miles
+            Explore our Products
           </h2>
-          <p className="text-md md:text-xl text-gray-400">
+          {/* <p className="text-md md:text-xl text-gray-400">
             A lightweight Nike ZoomX midsole is combined with increased stack
             heights to help provide cushioning during extended stretches of
             running.
-          </p>
+          </p> */}
         </div>
         {/* heading and paragaph end */}
         <div className="flex flex-col sm:flex-row">
@@ -103,7 +103,8 @@ export async function getServerSideProps() {
   // const res = await fetch(`https://dummyjson.com/products`);
   // const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/hello`);
 
-  const res = await fetch(`https://jannat-fashion.vercel.app/api/product`);
+  // const res = await fetch(`https://jannat-fashion.vercel.app/api/product`); //production
+  const res = await fetch(`http://localhost:3000/api/product`); //test
   const data = await res.json();
   const products = data.products;
   // Pass data to the page via props

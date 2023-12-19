@@ -17,6 +17,7 @@ import Link from "next/link";
 
 const ProductDetails = ({ products }) => {
   const [selectedSize, setSelectedSize] = useState();
+  const [selectedColor, setSelectedColor] = useState();
   const [showError, setShowError] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -82,10 +83,10 @@ const ProductDetails = ({ products }) => {
               </div>
 
               <div className="text-md font-medium text-black/[0.5]">
-                incl. of taxes
+                {/* incl. of taxes */}
               </div>
               <div className="text-md font-medium text-black/[0.5] mb-20">
-                {`(Also includes all applicable duties)`}
+                {/* {`(Also includes all applicable duties)`} */}
               </div>
 
               {/* PRODUCT SIZE RANGE START */}
@@ -110,9 +111,11 @@ const ProductDetails = ({ products }) => {
                         className={`border rounded-md text-center py-3 font-medium ${
                           item.enabled
                             ? "hover:border-[#a14da0ff] cursor-pointer"
-                            : "cursor-not-allowed bg-black/[0.1] opacity-50"
+                            : "hidden bg-black/[0.1] opacity-50"
                         } ${
-                          selectedSize === item.size ? "border-[#a14da0ff]" : ""
+                          selectedSize === item.size
+                            ? "border-[#a14da0ff] bg-pink-300"
+                            : ""
                         }`}
                         onClick={() => {
                           setSelectedSize(item.size);
@@ -137,6 +140,57 @@ const ProductDetails = ({ products }) => {
 
               {/* PRODUCT SIZE RANGE END */}
 
+              {/* PRODUCT COLORS RANGE START */}
+
+              {p.colors && (
+                <div className="mb-10">
+                  {/* HEADING START */}
+                  <div className="flex justify-between mb-2">
+                    <div className="text-md font-semibold">Select Color</div>
+                    <div className="text-md font-medium text-black/[0.5] cursor-pointer">
+                      Select Guide
+                    </div>
+                  </div>
+                  {/* HEADING END */}
+
+                  {/*   COLOR START */}
+
+                  <div id="sizesGrid" className="grid grid-cols-3 gap-2">
+                    {p.colors.data.map((item, i) => (
+                      <div
+                        key={i}
+                        className={`border rounded-md text-center py-3 font-medium ${
+                          item.enabled
+                            ? `hover:border-[#a14da0ff] cursor-pointer`
+                            : "hidden bg-black/[0.1] opacity-50"
+                        } ${
+                          selectedColor === item.color
+                            ? `border-[#a14da0ff] bg-pink-300`
+                            : ``
+                        }`}
+                        onClick={() => {
+                          setSelectedColor(item.color);
+                          setShowError(false);
+                        }}
+                      >
+                        {item.color}
+                      </div>
+                    ))}
+                  </div>
+                  {/* COLOR END */}
+
+                  {/* SHOW ERROR START */}
+                  {showError && (
+                    <div className="text-red-600 mt-1">
+                      Size selection is required
+                    </div>
+                  )}
+                  {/* SHOW ERROR END */}
+                </div>
+              )}
+
+              {/* PRODUCT COLORS RANGE END*/}
+
               {/* ADD TO CART BUTTON START */}
               <button
                 className="w-full py-4 rounded-full bg-[#91c4f2ff] text-black text-lg font-bold transition-transform active:scale-95 mb-3 hover:opacity-75"
@@ -152,6 +206,7 @@ const ProductDetails = ({ products }) => {
                       addToCart({
                         ...p,
                         selectedSize,
+                        selectedColor,
                         oneQuantityPrice: p.price,
                       })
                     );
@@ -222,7 +277,8 @@ const ProductDetails = ({ products }) => {
 export async function getServerSideProps() {
   // Fetch data from external API
   // const res = await fetch(`https://dummyjson.com/products`);
-  const res = await fetch(`https://jannat-fashion.vercel.app/api/product`);
+  // const res = await fetch(`https://jannat-fashion.vercel.app/api/product`); //production
+  const res = await fetch(`http://localhost:3000/api/product`); //test
   const data = await res.json();
   const products = data.products;
 

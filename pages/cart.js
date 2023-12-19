@@ -4,6 +4,7 @@ import Link from "next/link";
 import Wrapper from "@/components/Wrapper";
 import CartItem from "@/components/CartItem";
 import { useSelector } from "react-redux";
+import { FaFacebookF, FaPhone, FaWhatsapp } from "react-icons/fa";
 
 const Cart = () => {
   const [loading, setLoading] = useState(false);
@@ -53,21 +54,42 @@ const Cart = () => {
                     </div>
                   </div>
                   <div className="text-sm md:text-md py-5 border-t mt-5">
-                    The subtotal reflects the total price of your order,
-                    including duties and taxes, before any applicable discounts.
-                    It does not include delivery costs and international
-                    transaction fees.
+                    Kindly place order via given mediums. Online payment system
+                    is under development.
                   </div>
                 </div>
 
                 {/* BUTTON START */}
-                <button
-                  className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
-                  onClick={handlePayment}
-                >
-                  Call Us to place order!
-                  {loading && <img src="/spinner.svg" />}
-                </button>
+                <h2 className="text-center font-bold text-2xl mb-5">
+                  Order via :{" "}
+                </h2>
+                <div className="flex justify-center gap-3">
+                  <div
+                    onClick={() =>
+                      window.open(
+                        "https://www.facebook.com/profile.php?id=61552690433016",
+                        "_blank"
+                      )
+                    }
+                    className="w-24 h-16 rounded-md bg-[#91c4f2ff] flex items-center justify-center text-black hover:bg-pink-300 cursor-pointer"
+                  >
+                    <FaFacebookF size={24} />
+                  </div>
+                  <div
+                    onClick={() =>
+                      window.open("https://wa.me/+351920538551", "_blank")
+                    }
+                    className="w-24 h-16  rounded-md bg-[#91c4f2ff] flex items-center justify-center text-black hover:bg-pink-300 cursor-pointer"
+                  >
+                    <FaWhatsapp size={24} />
+                  </div>
+                  <div
+                    onClick={() => window.open("tel:+351920538551", "_blank")}
+                    className="w-24 h-16  rounded-md bg-[#91c4f2ff] flex items-center justify-center text-black hover:bg-pink-300 cursor-pointer"
+                  >
+                    <FaPhone size={24} />
+                  </div>
+                </div>
                 {/* BUTTON END */}
               </div>
               {/* SUMMARY END */}

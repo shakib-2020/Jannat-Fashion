@@ -74,6 +74,26 @@ const CartItem = ({ data }) => {
                 })}
               </select>
             </div>
+            <div className="flex items-center gap-1">
+              <div className="font-semibold">Color:</div>
+              <select
+                className="hover:text-black"
+                onChange={(e) => updateCartItem(e, "selectedColor")}
+              >
+                {p.colors?.data.map((item, i) => {
+                  return (
+                    <option
+                      key={i}
+                      value={item.color}
+                      disabled={!item.enabled ? true : false}
+                      selected={data.selectedColor === item.color}
+                    >
+                      {item.color}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
 
             <div className="flex items-center gap-1">
               <div className="font-semibold">Quantity:</div>
