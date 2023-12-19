@@ -277,8 +277,8 @@ const ProductDetails = ({ products }) => {
 export async function getServerSideProps() {
   // Fetch data from external API
   // const res = await fetch(`https://dummyjson.com/products`);
-  // const res = await fetch(`https://jannat-fashion.vercel.app/api/product`); //production
-  const res = await fetch(`http://localhost:3000/api/product`); //test
+  const res = await fetch(`https://jannat-fashion.vercel.app/api/product`); //production
+  // const res = await fetch(`http://localhost:3000/api/product`); //test
   const data = await res.json();
   const products = data.products;
 

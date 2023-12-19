@@ -103,8 +103,8 @@ export async function getServerSideProps() {
   // const res = await fetch(`https://dummyjson.com/products`);
   // const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/hello`);
 
-  // const res = await fetch(`https://jannat-fashion.vercel.app/api/product`); //production
-  const res = await fetch(`http://localhost:3000/api/product`); //test
+  const res = await fetch(`https://jannat-fashion.vercel.app/api/product`); //production
+  // const res = await fetch(`http://localhost:3000/api/product`); //test
   const data = await res.json();
   const products = data.products;
   // Pass data to the page via props
